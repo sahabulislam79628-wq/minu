@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Why You're Special ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>💖 Why You're Special 💖</h1>
+
+<div class="card card1">
+    🌟 You always make me smile.
+</div>
+
+<div class="card card2">
+    😂 You make every day more fun.
+</div>
+
+<div class="card card3">
+    ❤️ You're one of the kindest people I know.
+</div>
+
+<div class="card card4">
+    ✨ Life is better with you in it.
+</div>
+
+<button onclick="location.href='page3.html'">
+    Next Memory 📸
+</button>
+</div>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+
+    const hearts = ["💖", "💕", "💗", "💘", "💝"];
+    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.classList.add("heart");
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>

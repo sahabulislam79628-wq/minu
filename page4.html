@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Surprise ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffe6ee,#fff8fb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    z-index:10;
+    position:relative;
+    max-width:800px;
+    padding:20px;
+}
+
+#countdown{
+    font-size:100px;
+    color:#ff4d88;
+    font-weight:bold;
+}
+
+.hidden{
+    display:none;
+}
+
+.certificate{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    animation:fadeIn 2s ease;
+}
+
+.certificate h1{
+    color:#ff4d88;
+    margin-bottom:20px;
+}
+
+.certificate p{
+    font-size:20px;
+    line-height:1.8;
+    color:#444;
+}
+
+.final-message{
+    margin-top:30px;
+    font-size:24px;
+    color:#ff4d88;
+    font-weight:bold;
+}
+
+.heart{
+    position:fixed;
+    top:-50px;
+    pointer-events:none;
+    animation:fall 6s linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-50px);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="countdown">3</div>
+
+    <div id="surprise" class="hidden">
+
+        <div class="certificate">
+            <h1>🏆 OFFICIAL FRIENDSHIP CERTIFICATE 🏆</h1>
+
+            <p>
+                This certifies that
+            </p>
+
+            <h2 style="color:#ff4d88; margin:15px 0;">
+                MINU
+            </h2>
+
+            <p>
+                has successfully completed
+                the Best Friend Test.
+            </p>
+
+            <p>
+                Grade: <b>100/100</b>
+            </p>
+
+            <p>
+                Status: <b>Legendary Friend ❤️</b>
+            </p>
+
+            <div class="final-message">
+                Thank you for all the laughs,
+                memories and support.
+                <br><br>
+                This website may end here,
+                but our friendship doesn't.
+                You know i am not good at coding but i tried my best!💙
+            </div>
+                
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+// Countdown
+let count = 3;
+
+const countdownEl = document.getElementById("countdown");
+const surpriseEl = document.getElementById("surprise");
+
+const timer = setInterval(() => {
+
+    count--;
+
+    if(count > 0){
+        countdownEl.textContent = count;
+    }
+    else{
+        clearInterval(timer);
+
+        countdownEl.style.display = "none";
+        surpriseEl.classList.remove("hidden");
+    }
+
+}, 1000);
+
+
+// Falling hearts
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    const hearts = ["💖","💕","💗","💘","💝"];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.classList.add("heart");
+
+    heart.style.left =
+        Math.random()*window.innerWidth + "px";
+
+    heart.style.fontSize =
+        (Math.random()*20 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
